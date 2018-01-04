@@ -4,13 +4,18 @@ html {
 }
 
 body {
-  background-color: #2892FF;
-  color:rgb(199, 214, 230);
+  background-color: #14497F;
+  color: #3A5C7F;
   display: flex;
   height: 100%;
   width: 100%
 }
 
 .current-container {
-  border: 1px solid black;
-} 
+  background-color: #74B9FF
+}
+
+.hourly-container {
+  background-color: #74B9FF;
+  margin-left: 400px; 
+}
