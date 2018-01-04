@@ -1,6 +1,7 @@
 import React from 'react';
 import {data} from './mockData';
 import CurrentWeather from './CurrentWeather';
+import SevenHour from './SevenHour';
 
 export default class App extends React.Component {
   constructor() {
@@ -8,10 +9,11 @@ export default class App extends React.Component {
 
   }
 
-  render() {
+  render() { 
     return (
       <div>
-        <CurrentWeather />
+        <CurrentWeather />,
+        <SevenHour hourData={data} />
       </div>
     )
   }
