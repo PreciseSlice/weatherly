@@ -21,9 +21,9 @@ export default class App extends React.Component {
 
     this.setState({ 
       current: weather.currentConditionData,
-      hourly: weather.sevenHourData
+      hourly: weather.sevenHourData,
+      daily: weather.dailyData
     });
-    console.log(this)
   }
 
   componentDidMount() {

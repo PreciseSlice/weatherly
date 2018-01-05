@@ -4,6 +4,7 @@ export default class CurrentWeather extends React.Component {
   constructor() {
     super();
   }
+  
   render() {
     return (
       <div className="current-container">
