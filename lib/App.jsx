@@ -4,6 +4,7 @@ import CurrentWeather from './CurrentWeather';
 import SevenHour from './SevenHour';
 import filterData from './filterData';
 import Daily from './Daily';
+import Search from './Search'; 
 
 export default class App extends React.Component {
   constructor() {
@@ -37,6 +38,7 @@ export default class App extends React.Component {
         <CurrentWeather data={this.state.current} />
         <SevenHour data={this.state.hourly} />
         <Daily data={this.state.daily} />
+        <Search />
       </div>
     )
   }
