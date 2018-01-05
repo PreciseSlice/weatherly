@@ -1,5 +1,4 @@
 import React from 'react';
-import { data } from './mockData';
 
 export default class CurrentWeather extends React.Component {
   constructor() {
@@ -14,8 +13,8 @@ export default class CurrentWeather extends React.Component {
         <h3>Current Temp: {this.props.data.currentTemp}°F</h3>
         <h3>Today's High: {this.props.data.todaysHigh}°F</h3>
         <h3>Today's Low: {this.props.data.todaysLow}°F</h3>
-        <h3>Forcast: {this.props.data.forecast}</h3>
         <img src={this.props.data.img} alt="icon representing current conditions" />
+        <h3>Forcast: {this.props.data.forcast}</h3>
       </div>
     )
   }
