@@ -34,7 +34,7 @@ export default class App extends React.Component {
     return (
       <div>
         <CurrentWeather data={this.state.current} />
-        {/* <SevenHour hourData={hourly} /> */}
+        <SevenHour data={this.state.hourly} />
         {/* <Daily dailyData={daily} /> */}
       </div>
     )
