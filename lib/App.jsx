@@ -3,6 +3,7 @@ import { data } from './mockData';
 import CurrentWeather from './CurrentWeather';
 import SevenHour from './SevenHour';
 import filterData from './filterData';
+import Daily from './Daily';
 
 export default class App extends React.Component {
   constructor() {
@@ -35,7 +36,7 @@ export default class App extends React.Component {
       <div>
         <CurrentWeather data={this.state.current} />
         <SevenHour data={this.state.hourly} />
-        {/* <Daily dailyData={daily} /> */}
+        <Daily data={this.state.daily} />
       </div>
     )
   }
