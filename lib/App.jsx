@@ -20,8 +20,10 @@ export default class App extends React.Component {
     let weather = filterData(data);
 
     this.setState({ 
-      current: weather
+      current: weather.currentConditionData,
+      hourly: weather.sevenHourData
     });
+    console.log(this)
   }
 
   componentDidMount() {
@@ -31,8 +33,7 @@ export default class App extends React.Component {
   render() { 
     return (
       <div>
-        <CurrentWeather data={this.state.current} />,
-        {/* <CurrentWeather currentData={current} /> */}
+        <CurrentWeather data={this.state.current} />
         {/* <SevenHour hourData={hourly} /> */}
         {/* <Daily dailyData={daily} /> */}
       </div>

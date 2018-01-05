@@ -1,5 +1,4 @@
 import React from 'react';
-import {data} from './mockData';
 import HourCard from './hourCard';
 
 // export default function SevenHour (props)  {
@@ -9,9 +8,11 @@ import HourCard from './hourCard';
 //       {props.hourData.map((data, i) => {
 //         return (
 //           <HourCard 
-//             hour={data}
-//             img={data}
-//             temp={data}
+//             hour={this.props.data}
+//             img={this.props.data}
+//             condition={this.props.data}
+//             temp={this.props.data}
+//             precip={this.props.data}
 //             key={i}
 //           />
 //         )
