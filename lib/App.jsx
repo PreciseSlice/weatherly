@@ -1,10 +1,11 @@
 import React from 'react';
-import { data } from './mockData';
+//import { data } from './mockData';
 import CurrentWeather from './CurrentWeather';
 import SevenHour from './SevenHour';
 import filterData from './filterData';
 import Daily from './Daily';
-import Search from './Search'; 
+import Search from './Search';
+import { key } from './.key.js';
 
 export default class App extends React.Component {
   constructor() {
@@ -14,31 +15,44 @@ export default class App extends React.Component {
       hourly: [],
       daily: []
     };
-
+    
     this.getWeather = this.getWeather.bind(this); 
   }
   
-  getWeather(data) {
-    let weather = filterData(data);
+  getWeather() {
+    //const trieData = userLocation.split(', ');
+    const url = `http://api.wunderground.com/api/${key}/conditions/forecast10day/hourly/q/CO/Denver.json`;
 
-    this.setState({ 
-      current: weather.currentConditionData,
-      hourly: weather.sevenHourData,
-      daily: weather.dailyData
-    });
+    fetch(url)
+      .then(data => data.json())
+
+      .then( data=> {
+        let weather = filterData(data);
+        
+        this.setState({ 
+          current: weather.currentConditionData,
+          hourly: weather.sevenHourData,
+          daily: weather.dailyData
+        });
+      })
+      .catch( 
+        error => this.setState( { error } ) 
+      );
   }
 
   componentDidMount() {
-    this.getWeather(data);
+    this.getWeather();
   }
   
   render() { 
+    let { error } = this.state;
     return (
       <div>
         <CurrentWeather data={this.state.current} />
         <SevenHour data={this.state.hourly} />
         <Daily data={this.state.daily} />
         <Search />
+        { error && <h1>404 City Not Found</h1>  }
       </div>
     )
   }
