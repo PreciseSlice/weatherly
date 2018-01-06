@@ -47,7 +47,7 @@ export default class App extends React.Component {
   render() { 
     let { error } = this.state;
     return (
-      <div>
+      <div className="main-container">
         <Search />
         <CurrentWeather data={this.state.current} />
         <SevenHour data={this.state.hourly} />
