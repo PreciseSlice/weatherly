@@ -48,10 +48,10 @@ export default class App extends React.Component {
     let { error } = this.state;
     return (
       <div>
+        <Search />
         <CurrentWeather data={this.state.current} />
         <SevenHour data={this.state.hourly} />
         <Daily data={this.state.daily} />
-        <Search />
         { error && <h1>404 City Not Found</h1>  }
       </div>
     )

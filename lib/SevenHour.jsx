@@ -1,17 +1,22 @@
 import React from 'react';
-import HourCard from './hourCard';
+import Card from './card';
 
 export default function SevenHour (props)  {
   return (
-    <div className="hourly-container">
-      {props.data.map((data, i) => {
-        return (
-          <HourCard 
-            data={data}
-            key={i}
-          />
-        )
-      })}      
+    <div>
+      <h2>Hourly Forecast</h2>
+      
+      {
+        props.data.map((hour, i) => {
+          return (
+            <Card 
+              hour={hour}
+              key={i}
+            />
+          )
+        })
+      }
+            
     </div>
   )
 }
