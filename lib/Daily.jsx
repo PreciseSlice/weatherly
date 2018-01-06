@@ -1,17 +1,22 @@
 import React from 'react';
-import DailyCard from './dailyCard';
+import Card from './card';
 
 export default function Daily (props)  {
   return (
-    <div className="daily-container">
-      {props.data.map((data, i) => {
-        return (
-          <DailyCard 
-            data={data}
-            key={i}
-          />
-        )
-      })}      
+    <div>
+      <h2>Daily Forcast</h2>
+
+      {
+        props.data.map((day, i) => {
+          return (
+            <Card 
+              day={day}
+              key={i}
+            />
+          )
+        })
+      }
+            
     </div>
   )
 }
