@@ -4,10 +4,15 @@ html {
 }
 
 body {
-  background: linear-gradient(to left top, #5c7ff1, #e79464) no-repeat;
+  /* background: linear-gradient(to left top, #5c7ff1, #e79464) no-repeat; */
+  background-image: url('../img/atmos-bg.jpg');
+  background-position: contain;
+  background-repeat: no-repeat;
+  background-size: cover;
   box-sizing: border-box;
   /* background-color: #14497F; */
   color: #3A5C7F;
+  font-family: 'Oswald', sans-serif;
   min-height: 100%;
   width: 100%;
 }
