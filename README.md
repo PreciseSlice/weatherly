@@ -2,6 +2,6 @@
 
 ### wireframes
 
-![Landing Page](weatherly-landing-page.png?raw=true)
+![Landing Page](./img/weatherly-landing-page.png?raw=true)
 
-![Main page](weatherly.png?raw=true)
+![Main page](./img/weatherly.png?raw=true)
