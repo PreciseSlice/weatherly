@@ -1,7 +1,9 @@
 # Weather App
 
-### wireframes
+## wireframes
 
-![Landing Page](./img/weatherly-landing-page.png?raw=true)
-
+### Main Page
 ![Main page](./img/weatherly.png?raw=true)
+
+### Landing Page
+![Landing Page](./img/weatherly-landing-page.png?raw=true)

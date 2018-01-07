@@ -14,7 +14,6 @@ export default class Search extends React.Component {
   render () {
     return (
       <div>
-        <label htmlFor="userLocation">Enter your location</label>
         <input 
           id="userLocation"
           value={this.state.location}

@@ -3,9 +3,7 @@ import Card from './card';
 
 export default function Daily (props)  {
   return (
-    <div>
-      <h2>Daily Forcast</h2>
-
+    <div className="ten-day">
       {
         props.data.map((day, i) => {
           return (
@@ -15,8 +13,7 @@ export default function Daily (props)  {
             />
           )
         })
-      }
-            
+      }      
     </div>
   )
 }

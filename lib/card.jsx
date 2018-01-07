@@ -26,9 +26,7 @@ export default class Card extends React.Component {
               <h3>{this.props.day.day}</h3>
               <img src={this.props.day.img} alt="icon representing current conditions" />
               <h4>Condition: {this.props.day.condition}</h4>
-              <h4>High: {this.props.day.high}</h4>
-              {/* high and low can be on the same line */}
-              <h4>Low: {this.props.day.low}</h4>
+              <h4>High: {this.props.day.high}   |   Low: {this.props.day.low}</h4>
               <h4>Chance of Rain: {this.props.day.precip} </h4>
             </div>
           )
