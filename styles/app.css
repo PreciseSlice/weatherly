@@ -4,15 +4,13 @@ html {
 }
 
 body {
-  /* background: linear-gradient(to left top, #5c7ff1, #e79464) no-repeat; */
   background-image: url('../img/atmos-bg.jpg');
-  background-position: contain;
   background-repeat: no-repeat;
   background-size: cover;
   box-sizing: border-box;
-  /* background-color: #14497F; */
-  color: #3A5C7F;
+  color: white;
   font-family: 'Oswald', sans-serif;
+  letter-spacing: .13em;
   min-height: 100%;
   width: 100%;
 }
@@ -25,21 +23,73 @@ body {
 .main-container {
   box-shadow: 0 0 5px 5px #d1d0d0;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   min-height: 100%;
   width: 100%;
 }
 
+.left {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100vh;
+}
+
 .current-container {
   align-self: center;
-  background-color: #d1d0d0;
+  background: rgba(120, 120, 120, 0.5);
+  border-radius: 5%;
+  box-shadow: inset 0 0 1px 1px #78787880, 0 0 1px 2px #78787880;
   width: 50%;
   text-align: center;
 }
 
+.right {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  height: 100vh;
+} 
+
+.hourly-container,
+.daily-container
+{
+  height: 100vh;
+  width: 50%;
+}
+
+.label-text {
+  margin-left: 36%;
+}
+
+.seven-hour,
+.ten-day
+{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.houly-card-container,
+.daily-card-container  
+{
+  background: rgba(120, 120, 120, 0.5);
+  border-radius: 6% / 3%;
+  box-shadow: inset 0 0 1px 1px #78787880, 0 0 1px 2px #78787880;
+  width: 85%;
+  display: flex;
+  justify-content: center;
+  padding-top: 32px;
+  height: 82%;
+  overflow: auto;
+} 
+
 .card {
-  background-color: #d1d0d0;
-  box-shadow: 0 0 5px 5px #d1d0d0;
-  width: 20%;
+  background: #78787880;
+  border-radius: 5%;
+  box-shadow: inset 0 0 1px 1px #78787880, 0 0 1px 2px #78787880;
+  margin-bottom: 32px;
+  width: 80%;
   text-align: center;
 }
