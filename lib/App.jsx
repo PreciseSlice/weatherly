@@ -5,15 +5,18 @@ import SevenHour from './SevenHour';
 import filterData from './filterData';
 import Daily from './Daily';
 import Search from './Search';
-import { key } from './.key.js';
+import { key } from './.key';
+import Welcome from './Welcome';
 
 export default class App extends React.Component {
   constructor() {
     super();
     this.state = {
+      location: '',
       current: {},
       hourly: [],
-      daily: []
+      daily: [],
+      welcome: false
     };
     
     this.getWeather = this.getWeather.bind(this); 
@@ -45,37 +48,55 @@ export default class App extends React.Component {
   }
   
   render() { 
-    let { error } = this.state;
+    let { 
+      error,
+      welcome
+    } = this.state;
+
     return (
-      <div className="main-container">
-        
-        <div className="left">
-          <Search />
-          <h1>ATMOS</h1>
-          <h2>weather</h2>
-          <h3>CURRENT CONDITIONS</h3>
-          <CurrentWeather data={this.state.current} />
-        </div>
+      
+      <div>
+
+        {
+          !welcome && (
+            <div className="main-container">
+              <div className="left">
+                <Search />
+                <h1>ATMOS</h1>
+                <h2>weather</h2>
+                <h3>CURRENT CONDITIONS</h3>
+                <CurrentWeather data={this.state.current} />
+              </div>
+          
+              <div className="right">
     
-        <div className="right">
+                <div className="hourly-container">
+                  <h3 className="label-text">HOURLY</h3>
+                  <div className="houly-card-container">
+                    <SevenHour data={this.state.hourly} />
+                  </div>
+                </div>
+    
+                <div className="daily-container">
+                  <h3 className="label-text">10 DAY</h3>
+                  <div className="daily-card-container">
+                    <Daily data={this.state.daily} />
+                  </div>
+                </div>
+    
+              </div>
 
-          <div className="hourly-container">
-            <h3 className="label-text">HOURLY</h3>
-            <div className="houly-card-container">
-              <SevenHour data={this.state.hourly} />
-            </div>
+              { error && <h1>404 City Not Found</h1>  }
           </div>
+          )
+        }
+        
+        {
+          welcome && (
+            <Welcome />
+          )
+        }
 
-          <div className="daily-container">
-            <h3 className="label-text">10 DAY</h3>
-            <div className="daily-card-container">
-              <Daily data={this.state.daily} />
-            </div>
-          </div>
-
-        </div>
-
-        { error && <h1>404 City Not Found</h1>  }
       </div>
     )
   }
