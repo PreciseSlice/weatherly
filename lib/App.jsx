@@ -1,5 +1,4 @@
 import React from 'react';
-//import { data } from './mockData';
 import CurrentWeather from './CurrentWeather';
 import SevenHour from './SevenHour';
 import filterData from './filterData';
@@ -22,9 +21,9 @@ export default class App extends React.Component {
     this.getWeather = this.getWeather.bind(this); 
   }
   
-  getWeather() {
-    //const trieData = userLocation.split(', ');
-    const url = `http://api.wunderground.com/api/${key}/conditions/forecast10day/hourly/q/CO/Denver.json`;
+  getWeather(input) {
+    this.testInput(input);
+    const url = `http://api.wunderground.com/api/${key}/conditions/forecast10day/hourly/q/${input}.json`;
 
     fetch(url)
       .then(data => data.json())
@@ -35,18 +34,30 @@ export default class App extends React.Component {
         this.setState({ 
           current: weather.currentConditionData,
           hourly: weather.sevenHourData,
-          daily: weather.dailyData
+          daily: weather.dailyData,
+          welcome: false
         });
-        console.log(this)
       })
       .catch( 
         error => this.setState( { error } ) 
       );
   }
 
-  componentDidMount() {
-    this.getWeather();
+  testInput(value) {
+    if (isNaN(value)) {
+        value = value.split(", ");
+        return `${value[1]}/${value[0]}`;
+    } else {
+        return value;
+    }
+}
+
+componentDidMount() {
+  let location = localStorage.getItem("location");
+  if (location !== null) {
+      this.getWeather(location);
   }
+}
   
   render() { 
     let { 
@@ -62,7 +73,7 @@ export default class App extends React.Component {
           !welcome && (
             <div className="main-container">
               <div className="left">
-                <Search />
+                <Search getWeather={this.getWeather}/>
                 <h1>ATMOS</h1>
                 <h2>weather</h2>
                 <h3>CURRENT CONDITIONS</h3>
@@ -94,7 +105,7 @@ export default class App extends React.Component {
         
         {
           welcome && (
-            <Welcome />
+            <Welcome getWeather={this.getWeather} />
           )
         }
 
