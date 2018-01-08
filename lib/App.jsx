@@ -16,7 +16,7 @@ export default class App extends React.Component {
       current: {},
       hourly: [],
       daily: [],
-      welcome: false
+      welcome: true
     };
     
     this.getWeather = this.getWeather.bind(this); 
@@ -37,6 +37,7 @@ export default class App extends React.Component {
           hourly: weather.sevenHourData,
           daily: weather.dailyData
         });
+        console.log(this)
       })
       .catch( 
         error => this.setState( { error } ) 
