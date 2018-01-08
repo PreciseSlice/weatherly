@@ -37,10 +37,28 @@ h2 {
 }
 
 .left {
+  align-items: center;
   display: flex;
   flex-direction: column;
   width: 50%;
   height: 100vh;
+}
+
+.left h1 {
+  letter-spacing: 0.25em;
+  margin-top: 5%;
+  font-size: 5em;
+}
+
+.left h2 {
+  letter-spacing: 0.2em;
+  font-size: 3em;
+  font-weight: 100;
+  margin-top: 0;
+}
+
+.left h3 {
+  margin-top: 4.05%;
 }
 
 .current-container {
@@ -48,7 +66,7 @@ h2 {
   background: rgba(120, 120, 120, 0.5);
   border-radius: 5%;
   box-shadow: inset 0 0 1px 1px #78787880, 0 0 1px 2px #78787880;
-  width: 50%;
+  width: 66%;
   text-align: center;
 }
 
@@ -67,7 +85,7 @@ h2 {
 }
 
 .label-text {
-  margin-left: 36%;
+  margin-left: 31%;
 }
 
 .seven-hour,
@@ -110,7 +128,7 @@ h2 {
 }
 
 .welcome-container h1 {
-  letter-spacing: 0.2em;
+  letter-spacing: 0.25em;
   margin-top: 5%;
   font-size: 5em;
 }
@@ -124,21 +142,48 @@ h2 {
 
 .search {
   margin-top: 7%;
+  width: 100%;
 }
 
-.search input {
+.welcome-container input {
   background: rgba(120, 120, 120, 0.5);
   border: none;
+  border-radius: 2% / 30% 0 0 30%;
   vertical-align: middle;
   font-size: 1.5em;
   width: 20%;
   padding: .44em;
 }
 
-.search button {
+.welcome-container button {
   background: rgba(120, 120, 120, 0.5);
   border: none;
-  border-radius: initial;
+  border-top-right-radius: 15% 23%;
+  border-bottom-right-radius: 15% 23%;
+  color: lightgray;
+  vertical-align: middle;
+  height: 3em;
+  outline: none;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.left input {
+  background: rgba(120, 120, 120, 0.5);
+  border: none;
+  border-radius: 2% / 30% 0 0 30%;
+  font-size: 1.5em;
+  margin-left: 7%;
+  padding: .44em;
+  vertical-align: middle;
+  width: 70%;
+}
+
+.left button {
+  background: rgba(120, 120, 120, 0.5);
+  border: none;
+  border-top-right-radius: 15% 23%;
+  border-bottom-right-radius: 15% 23%;
   color: lightgray;
   vertical-align: middle;
   height: 3em;
