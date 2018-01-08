@@ -9,21 +9,25 @@ const current = {
   todaysLow: "30"
 };
 
-const day = {
-  condition: "Clear",
-  day: "Sunday",
-  high: "",
-  img: "http://icons.wxug.com/i/c/k/clear.gif",
-  low: "30",
-  precip: 0
-};
+const day = [
+  {
+    condition: "Clear",
+    day: "Sunday",
+    high: "",
+    img: "http://icons.wxug.com/i/c/k/clear.gif",
+    low: "30",
+    precip: 0
+  } 
+];
 
-const hour = {
-  condition: "Clear",
-  hour: "10:00 PM",
-  img: "http://icons.wxug.com/i/c/k/nt_clear.gif",
-  precip: "0",
-  temp: "35"
-};
+const hour = [
+  {
+    condition: "Clear",
+    hour: "10:00 PM",
+    img: "http://icons.wxug.com/i/c/k/nt_clear.gif",
+    precip: "0",
+    temp: "35"
+  }
+];
 
 module.exports =  { current, day, hour };

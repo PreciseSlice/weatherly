@@ -6,7 +6,7 @@ export default function Welcome (props) {
     <div className="welcome-container">
       <h1>ATMOS</h1>
       <h2>weather</h2>
-      <Search />
+      <Search getWeather={props.getWeather}/>
     </div>
   )
 }

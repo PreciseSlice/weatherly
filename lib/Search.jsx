@@ -9,32 +9,55 @@ export default class Search extends React.Component {
     this.state ={
       input: ''
     };
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleBtnClick = this.handleBtnClick.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
   handleInputChange(e) {
 
     this.setState({
-      inputVal: e.target.value
+      input: e.target.value,
+      getWeather: this.state.input
     });
+
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    let { input } = this.state;
-
-    input = input.toLowerCase();
+  handleKeyPress(e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      this.handleBtnClick();
+    }
   }
+
+  handleBtnClick () {
+
+    if(isNaN(this.state.input) 
+        && data.data.includes(this.state.input) 
+        || this.state.input.length === 5 && !isNaN(this.state.input)) {
+
+        this.props.getWeather(this.state.input);
+        this.setState({ input: this.state.input });
+        localStorage.setItem('location', this.state.input);
+    } else { 
+        alert('Invalid Input:\n\nPlease Enter City, State OR Zip Code\n\ne.g. Denver, CO OR 80202');
+        this.setState({ input: '' });
+        document.getElementById('searchInput').focus();
+    }       
+}
 
   render () {
     return (
       <div className="search">
         <input
+          autoFocus
           id="userLocation"
           value={this.state.input}
-          onChange={this.handleInputChange.bind(this)}
-          placeholder="city, state"
+          onChange={this.handleInputChange}
+          onKeyPress={this.handleKeyPress}
+          placeholder="zip code or city, state"
         />
-        <button>SEARCH</button>
+        <button onClick={this.handleBtnClick}>SEARCH</button>
       </div>
     )
   }
