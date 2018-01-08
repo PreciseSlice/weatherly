@@ -7,18 +7,34 @@ export default class Search extends React.Component {
     super();
 
     this.state ={
-      location: ''
+      input: ''
     };
+  }
+
+  handleInputChange(e) {
+
+    this.setState({
+      inputVal: e.target.value
+    });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    let { input } = this.state;
+
+    input = input.toLowerCase();
   }
 
   render () {
     return (
-      <div>
-        <input 
+      <div className="search">
+        <input
           id="userLocation"
-          value={this.state.location}
+          value={this.state.input}
+          onChange={this.handleInputChange.bind(this)}
+          placeholder="city, state"
         />
-        <button>Search</button>
+        <button>SEARCH</button>
       </div>
     )
   }

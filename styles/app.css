@@ -8,11 +8,19 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   box-sizing: border-box;
-  color: white;
-  font-family: 'Oswald', sans-serif;
+  color: lightgray;
+  font-family: 'Poppins', sans-serif;
   letter-spacing: .13em;
   min-height: 100%;
   width: 100%;
+}
+
+h1 {
+  margin: 0;
+}
+
+h2 {
+  margin: 0;
 }
 
 .app {
@@ -92,4 +100,49 @@ body {
   margin-bottom: 32px;
   width: 80%;
   text-align: center;
+}
+
+.welcome-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.welcome-container h1 {
+  letter-spacing: 0.2em;
+  margin-top: 5%;
+  font-size: 5em;
+}
+
+.welcome-container h2 {
+  letter-spacing: 0.2em;
+  font-size: 3em;
+  font-weight: 100;
+  margin-top: 2%;
+}
+
+.search {
+  margin-top: 7%;
+}
+
+.search input {
+  background: rgba(120, 120, 120, 0.5);
+  border: none;
+  vertical-align: middle;
+  font-size: 1.5em;
+  width: 20%;
+  padding: .44em;
+}
+
+.search button {
+  background: rgba(120, 120, 120, 0.5);
+  border: none;
+  border-radius: initial;
+  color: lightgray;
+  vertical-align: middle;
+  height: 3em;
+  outline: none;
+  font-weight: 600;
+  letter-spacing: 0.05em;
 }
