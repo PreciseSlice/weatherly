@@ -1,26 +1,36 @@
 import React from 'react';
 import data from './cities';
-//import { PrefixTree } from  '@PreciseSlice/complete-me';
+import { prefixTrie } from  '@PreciseSlice/complete-me';
 
 export default class Search extends React.Component {
   constructor() {
     super();
+    this.trie = new prefixTrie();
+    this.trie.populate(data.data);
 
     this.state ={
-      input: ''
+      input: '',
+      suggestedCity: []
     };
+
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleBtnClick = this.handleBtnClick.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
-  handleInputChange(e) {
+  suggestCity (word) {
+    let suggestions = this.trie.suggest(word);
+    this.setState({
+      suggestedCity: suggestions
+    });
+  }
 
+  handleInputChange(e) {
     this.setState({
       input: e.target.value,
       getWeather: this.state.input
     });
-
+    this.suggestCity(e.target.value);
   }
 
   handleKeyPress(e) {
@@ -56,7 +66,23 @@ export default class Search extends React.Component {
           onChange={this.handleInputChange}
           onKeyPress={this.handleKeyPress}
           placeholder="zip code or city, state"
+          list="dropDown"
         />
+
+        <datalist id="dropDown">
+          {
+          this.state.suggestedCity.map( (city, i) => {
+            let capSuggestion = city.split(', ');
+
+            capSuggestion[1] = capSuggestion[1].toUpperCase();
+            capSuggestion[0] = capSuggestion[0].charAt(0).toUpperCase() + capSuggestion[0].slice(1);
+
+            capSuggestion = capSuggestion.join(', ')
+
+           return <option value={capSuggestion} key={i}/> }).slice(0, 5)
+          }
+        </datalist>
+
         <button onClick={this.handleBtnClick}>SEARCH</button>
       </div>
     )
