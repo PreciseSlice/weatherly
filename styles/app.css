@@ -155,6 +155,7 @@ h2 {
   font-size: 1.5em;
   width: 20%;
   padding: .44em;
+  text-transform: capitalize;
 }
 
 .welcome-container button {
@@ -180,6 +181,7 @@ h2 {
   padding: .44em;
   vertical-align: middle;
   width: 70%;
+  text-transform: capitalize;
 }
 
 .left button {
