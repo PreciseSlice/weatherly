@@ -14,7 +14,7 @@ describe('Card', () => {
     expect(wrapper).toBeDefined();
   });
 
-  it("should be an object", () => {
+  it('should be an object', () => {
     expect(typeof wrapper).toEqual("object");
   });
 
