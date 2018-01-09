@@ -1,6 +1,5 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
-import Card from '../lib/Card';
 import { current } from './testMockData';
 import CurrentWeather from '../lib/CurrentWeather.jsx';
 
@@ -15,7 +14,7 @@ describe('CurrentWeather', () => {
     expect(wrapper).toBeDefined();
   });
 
-  it("should be an object", () => {
+  it('should be an object', () => {
     expect(typeof wrapper).toEqual("object");
   });
 
