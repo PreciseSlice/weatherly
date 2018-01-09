@@ -76,7 +76,7 @@ componentDidMount() {
                 <Search getWeather={this.getWeather}/>
                 <h1>ATMOS</h1>
                 <h2>weather</h2>
-                <h3>CURRENT CONDITIONS</h3>
+                <h3 className="current-condition">CURRENT CONDITIONS</h3>
                 <CurrentWeather data={this.state.current} />
               </div>
           
