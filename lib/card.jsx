@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes, { shape } from 'prop-types';
 
 export default class Card extends React.Component {
   constructor() {
@@ -34,4 +35,25 @@ export default class Card extends React.Component {
       </div>
     )
   }
+}
+
+Card.propTypes = {
+  day: PropTypes.object,
+  hour: PropTypes.object,
+
+  hour: PropTypes.shape({
+    hour: PropTypes.string,
+    img: PropTypes.string,
+    condition: PropTypes.string,
+    temp: PropTypes.string,
+    precip: PropTypes.string
+  }),
+
+  day: PropTypes.shape({
+    day: PropTypes.string,
+    img: PropTypes.string,
+    condition: PropTypes.string,
+    high: PropTypes.string,
+    low: PropTypes.string
+  }) 
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class CurrentWeather extends React.Component {
   constructor() {
@@ -20,3 +21,15 @@ export default class CurrentWeather extends React.Component {
     )
   }
 }
+
+CurrentWeather.propTypes = {
+  time: PropTypes.string,
+  place: PropTypes.string,
+  condition: PropTypes.string,
+  currentTemp: PropTypes.string,
+  todaysHigh: PropTypes.string,
+  todaysLow: PropTypes.string,
+  temp: PropTypes.string,
+  img: PropTypes.string,
+  forcast: PropTypes.string
+};
