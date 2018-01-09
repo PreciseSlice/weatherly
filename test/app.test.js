@@ -2,6 +2,19 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import App from '../lib/App';
 
+global.localStorage = {
+    
+  getItem(key) {
+    if (!global.localStorage[key]){
+      return null;
+    } 
+    return JSON.stringify(global.localStorage[key]);
+  },
+  setItem (key, value) {
+    global.localStorage[key] = value;
+  }
+};
+
 describe('App', () => {
   let wrapper;
 
@@ -44,6 +57,21 @@ describe('App', () => {
     expect(wrapper.find('CurrentWeather').length).toEqual(1);
     expect(wrapper.find('SevenHour').length).toEqual(1);
     expect(wrapper.find('Daily').length).toEqual(1);
+  });
+
+  it('should set it\s state of location to the location in local storage', () => {
+    global.localStorage.setItem('abc', 'Denver, CO');
+
+    const wrapper = mount(<App />);
+    wrapper.setState({location: JSON.parse(global.localStorage.getItem('abc'))});
+    expect(wrapper.state().location).toEqual('Denver, CO');
+  });
+
+  it('Should render Welcome component when it does not have any data in localStorage.', () => {
+    global.localStorage.abc = null;
+    const wrapper = mount(<App />);
+    expect(wrapper.find('CurrentWeather').length).toEqual(0);
+    expect(wrapper.find('Welcome').length).toEqual(1);
   });
 
 });
