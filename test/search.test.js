@@ -27,4 +27,28 @@ describe('Search', () => {
     expect(wrapper.find('button').length).toEqual(1);
   });
 
+  it('Should update state when an input is recived', () => {
+    const wrapper = mount(<Search />);
+    const event = {target: {value: 'Abc, DE'}};
+    
+    wrapper.find('input').simulate('change', event);
+    expect(wrapper.state('input')).toEqual('Abc, DE');
+  });
+
+  it('Should make suggestions upon reciving an input', () => {
+    const wrapper = mount(<Search />);
+    const event = {target: {value: "denv"}};
+    
+    wrapper.find('input').simulate('change', event);
+    expect( wrapper.state('suggestedCities') ).toEqual(['denver, co']);
+  });
+
+  it('Should be able to make various suggestions based on the input recived', () =>{
+    const wrapper = mount(<Search />);
+    const event = {target: {value: "elkh"}};
+    
+    wrapper.find('input').simulate('change', event);
+    expect( wrapper.state('suggestedCities') ).toEqual(['elkhart, in']);
+  });
+
 });
