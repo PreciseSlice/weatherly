@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from './card';
+import PropTypes from 'prop-types';
 
 export default function SevenHour (props)  {
   return (
@@ -11,9 +12,13 @@ export default function SevenHour (props)  {
               hour={hour}
               key={i}
             />
-          )
+          );
         })
       } 
     </div>
-  )
+  );
 }
+
+SevenHour.propTypes = {
+  data: PropTypes.array
+};

@@ -12,9 +12,13 @@ export default function Daily (props)  {
               day={day}
               key={i}
             />
-          )
+          );
         })
       }      
     </div>
-  )
+  );
 }
+
+Daily.propTypes = {
+  data: PropTypes.array
+};

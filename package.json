@@ -7,7 +7,7 @@
     "start": "webpack-dev-server",
     "build": "./node_modules/webpack/bin/webpack.js",
     "test": "jest",
-    "eslint": "./node_modules/eslint/bin/eslint.js ./lib/*.js"
+    "eslint": "./node_modules/eslint/bin/eslint.js ./lib/*.js ./lib/*.jsx"
   },
   "repository": {
     "type": "git",
@@ -42,7 +42,7 @@
     "eslint-config-airbnb": "^9.0.1",
     "eslint-plugin-import": "^1.8.0",
     "eslint-plugin-jsx-a11y": "^1.2.2",
-    "eslint-plugin-react": "^5.1.1",
+    "eslint-plugin-react": "^7.5.1",
     "file-loader": "^0.11.2",
     "jest": "^20.0.4",
     "mocha": "^2.4.5",

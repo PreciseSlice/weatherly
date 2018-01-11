@@ -1,5 +1,6 @@
 import React from 'react';
 import Search from './Search';
+import PropTypes from 'prop-types';
 
 export default function Welcome (props) {
   return (
@@ -8,5 +9,9 @@ export default function Welcome (props) {
       <h2>weather</h2>
       <Search getWeather={props.getWeather}/>
     </div>
-  )
+  );
 }
+
+Welcome.propTypes = {
+  getWeather: PropTypes.func
+};
