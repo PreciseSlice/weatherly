@@ -44,15 +44,15 @@ export default class Search extends React.Component {
 
   handleBtnClick () {
     
-    if (isNaN(this.state.input) 
-    && data.data.includes(this.state.input) 
-    
-    || this.state.input.length === 5 
-    && !isNaN(this.state.input)) {
+    if (isNaN(this.state.input) &&
+    data.data.includes(this.state.input) ||
+    this.state.input.length === 5 &&
+    !isNaN(this.state.input)) {
       
       this.props.getWeather(this.state.input);
       this.setState({ input: this.state.input });
       localStorage.setItem('location', this.state.input);
+      this.setState({ input: '' });
     } else { 
       alert(`Invalid Input:\n\nPlease Enter City,State 
       or Zip Code\n\ne.g. Denver, CO OR 80202`);
