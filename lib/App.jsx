@@ -23,7 +23,8 @@ export default class App extends React.Component {
   
   getWeather(input) {
     this.testInput(input);
-    const url = `http://api.wunderground.com/api/${key}/conditions/forecast10day/hourly/q/${input}.json`;
+    const url = `http://api.wunderground.com/api/${key}
+                 /conditions/forecast10day/hourly/q/${input}.json`;
 
     fetch(url)
       .then(data => data.json())
@@ -45,19 +46,20 @@ export default class App extends React.Component {
 
   testInput(value) {
     if (isNaN(value)) {
-        value = value.split(", ");
-        return `${value[1]}/${value[0]}`;
+      value = value.split(", ");
+      return `${value[1]}/${value[0]}`;
     } else {
-        return value;
+      return value;
     }
-}
-
-componentDidMount() {
-  let location = localStorage.getItem("location");
-  if (location !== null) {
-      this.getWeather(location);
   }
-}
+
+  componentDidMount() {
+    let location = localStorage.getItem("location");
+
+    if (location !== null) {
+      this.getWeather(location);
+    }
+  }
   
   render() { 
     let { 
@@ -99,7 +101,7 @@ componentDidMount() {
               </div>
 
               { error && <h1>404 City Not Found</h1>  }
-          </div>
+            </div>
           )
         }
         
@@ -110,6 +112,6 @@ componentDidMount() {
         }
 
       </div>
-    )
+    );
   }
 }

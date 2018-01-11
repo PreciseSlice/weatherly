@@ -1,14 +1,15 @@
 import React from 'react';
 import data from './cities';
-import { prefixTrie } from  '@PreciseSlice/complete-me';
+import { PrefixTrie } from  '@PreciseSlice/complete-me';
+import PropTypes from 'prop-types';
 
 export default class Search extends React.Component {
   constructor() {
     super();
-    this.trie = new prefixTrie();
+    this.trie = new PrefixTrie();
     this.trie.populate(data.data);
 
-    this.state ={
+    this.state = {
       input: '',
       suggestedCities: []
     };
@@ -20,6 +21,7 @@ export default class Search extends React.Component {
 
   suggestCity (word) {
     let suggestions = this.trie.suggest(word);
+
     this.setState({
       suggestedCities: suggestions
     });
@@ -42,7 +44,7 @@ export default class Search extends React.Component {
 
   handleBtnClick () {
     
-    if(isNaN(this.state.input) 
+    if (isNaN(this.state.input) 
     && data.data.includes(this.state.input) 
     
     || this.state.input.length === 5 
@@ -52,7 +54,8 @@ export default class Search extends React.Component {
       this.setState({ input: this.state.input });
       localStorage.setItem('location', this.state.input);
     } else { 
-      alert('Invalid Input:\n\nPlease Enter City, State OR Zip Code\n\ne.g. Denver, CO OR 80202');
+      alert(`Invalid Input:\n\nPlease Enter City,State 
+      or Zip Code\n\ne.g. Denver, CO OR 80202`);
       this.setState({ input: '' });
       document.getElementById('searchInput').focus();
     }
@@ -78,17 +81,23 @@ export default class Search extends React.Component {
               let capSuggestion = city.split(', ');
 
               capSuggestion[1] = capSuggestion[1].toUpperCase();
-              capSuggestion[0] = capSuggestion[0].charAt(0).toUpperCase() + capSuggestion[0].slice(1);
+              capSuggestion[0] = capSuggestion[0].charAt(0).toUpperCase()
+                + capSuggestion[0].slice(1);
 
-              capSuggestion = capSuggestion.join(', ')
+              capSuggestion = capSuggestion.join(', ');
 
-            return <option value={capSuggestion} key={i}/> }).slice(0, 5)
+              return <option value={capSuggestion} key={i}/>; 
+            }).slice(0, 5)
           }
         </datalist>
 
         <button onClick={this.handleBtnClick}>SEARCH</button>
 
       </div>
-    )
+    );
   }
 }
+
+Search.propTypes = {
+  getWeather: PropTypes.func
+};
