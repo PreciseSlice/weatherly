@@ -27,7 +27,7 @@
   "homepage": "https://github.com/turingschool-examples/react-starter-kit",
   "devDependencies": {
     "babel": "^6.5.2",
-    "babel-core": "^6.24.1",
+    "babel-core": "^6.26.2",
     "babel-eslint": "^6.0.4",
     "babel-jest": "^20.0.3",
     "babel-loader": "^6.2.4",
@@ -42,7 +42,7 @@
     "eslint-config-airbnb": "^9.0.1",
     "eslint-plugin-import": "^1.8.0",
     "eslint-plugin-jsx-a11y": "^1.2.2",
-    "eslint-plugin-react": "^7.5.1",
+    "eslint-plugin-react": "^7.7.0",
     "file-loader": "^0.11.2",
     "jest": "^20.0.4",
     "mocha": "^2.4.5",
