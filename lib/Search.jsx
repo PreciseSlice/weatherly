@@ -1,6 +1,6 @@
 import React from 'react';
 import data from './cities';
-import { PrefixTrie } from  '@PreciseSlice/complete-me';
+import { PrefixTrie } from '@PreciseSlice/complete-me';
 import PropTypes from 'prop-types';
 
 export default class Search extends React.Component {
@@ -19,7 +19,7 @@ export default class Search extends React.Component {
     this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
-  suggestCity (word) {
+  suggestCity(word) {
     let suggestions = this.trie.suggest(word);
 
     this.setState({
@@ -42,18 +42,16 @@ export default class Search extends React.Component {
     }
   }
 
-  handleBtnClick () {
-    
-    if (isNaN(this.state.input) &&
-    data.data.includes(this.state.input) ||
-    this.state.input.length === 5 &&
-    !isNaN(this.state.input)) {
-      
+  handleBtnClick() {
+    if (
+      (isNaN(this.state.input) && data.data.includes(this.state.input)) ||
+      (this.state.input.length === 5 && !isNaN(this.state.input))
+    ) {
       this.props.getWeather(this.state.input);
       this.setState({ input: this.state.input });
       localStorage.setItem('location', this.state.input);
       this.setState({ input: '' });
-    } else { 
+    } else {
       alert(`Invalid Input:\n\nPlease Enter City,State 
       or Zip Code\n\ne.g. Denver, CO OR 80202`);
       this.setState({ input: '' });
@@ -61,10 +59,9 @@ export default class Search extends React.Component {
     }
   }
 
-  render () {
+  render() {
     return (
       <div className="search">
-
         <input
           autoFocus
           id="userLocationInput"
@@ -76,23 +73,22 @@ export default class Search extends React.Component {
         />
 
         <datalist id="dropDown">
-          {
-            this.state.suggestedCities.map( (city, i) => {
+          {this.state.suggestedCities
+            .map((city, i) => {
               let capSuggestion = city.split(', ');
 
               capSuggestion[1] = capSuggestion[1].toUpperCase();
-              capSuggestion[0] = capSuggestion[0].charAt(0).toUpperCase()
-                + capSuggestion[0].slice(1);
-
+              capSuggestion[0] =
+                capSuggestion[0].charAt(0).toUpperCase() +
+                capSuggestion[0].slice(1);
               capSuggestion = capSuggestion.join(', ');
 
-              return <option value={capSuggestion} key={i}/>; 
-            }).slice(0, 5)
-          }
+              return <option value={capSuggestion} key={i} />;
+            })
+            .slice(0, 5)}
         </datalist>
 
         <button onClick={this.handleBtnClick}>SEARCH</button>
-
       </div>
     );
   }
