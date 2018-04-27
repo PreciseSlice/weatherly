@@ -73,22 +73,16 @@ export default class Search extends React.Component {
         />
 
         <datalist id="dropDown">
-          {// make helper function and then pass to city, this will also help testing
-          // input city output array
-          this.state.suggestedCities
+          {this.state.suggestedCities
             .map((city, i) => {
               let capSuggestion = city.split(', ');
 
-              //data structure
               capSuggestion[1] = capSuggestion[1].toUpperCase();
               capSuggestion[0] =
                 capSuggestion[0].charAt(0).toUpperCase() +
                 capSuggestion[0].slice(1);
-
-              // capSuggestion(city).join(', ')
               capSuggestion = capSuggestion.join(', ');
 
-              // presentation of data structure
               return <option value={capSuggestion} key={i} />;
             })
             .slice(0, 5)}
